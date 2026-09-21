@@ -1,0 +1,1021 @@
+===== FILE: requirements.txt =====
+flask>=3.0,<4
+
+
+===== FILE: static/app.css =====
+:root{color-scheme:dark;--bg:#0b0b0c;--panel:#111113;--panel2:#18181b;--line:#29292d;--text:#f4f4f5;--muted:#a1a1aa;--soft:#d4d4d8;--accent:#7c7cff;--accent2:#9b8cff;--danger:#ef4444}
+*{box-sizing:border-box}html,body{height:100%;margin:0}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none}button,input,textarea,select{font:inherit;color:inherit}button{border:0;background:none;cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}input,textarea,select{outline:none}
+.app-shell{height:100dvh;display:flex;overflow:hidden}.topbar{padding-top:env(safe-area-inset-top,0px);box-sizing:content-box}.sidebar{width:280px;flex:0 0 280px;background:#101012;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:12px}.side-top{display:flex;flex-direction:column;gap:14px}.wordmark{display:flex;align-items:center;gap:10px;padding:5px 7px;font-weight:650;font-size:15px}.wordmark img{border-radius:9px}.new-chat{height:42px;border:1px solid #35353a;border-radius:12px;text-align:left;padding:0 13px;background:#18181b;color:var(--text)}.new-chat:hover,.side-link:hover,.history-item:hover{background:#1d1d20}.search-box{height:40px;border:1px solid var(--line);border-radius:11px;background:#151517;display:flex;align-items:center;gap:8px;padding:0 11px;color:var(--muted);margin-top:12px}.search-box input{min-width:0;flex:1;background:none;border:0;color:var(--text)}.history-heading{display:flex;justify-content:space-between;align-items:center;margin:18px 7px 7px;color:var(--muted);font-size:12px}.text-btn{color:var(--muted);font-size:12px}.history-list{overflow:auto;flex:1}.history-item{display:flex;align-items:center;gap:9px;width:100%;text-align:left;border-radius:9px;padding:10px 9px;color:#ddd;font-size:13px;margin:2px 0}.history-item.active{background:#222226}.history-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.history-item small{display:block;color:#777}.side-bottom{border-top:1px solid var(--line);padding-top:8px}.side-link{width:100%;text-align:left;padding:10px 9px;border-radius:9px;color:#d4d4d8;font-size:13px}.side-link span{display:inline-block;width:22px;color:var(--muted)}.capability-note{padding:8px 9px;color:#777;font-size:11px;line-height:1.4}.main{min-width:0;flex:1;display:flex;flex-direction:column}.topbar{height:58px;display:grid;grid-template-columns:48px 1fr 80px;align-items:center;padding:0 12px;border-bottom:1px solid transparent}.icon-btn{width:38px;height:38px;border-radius:10px;color:var(--muted);font-size:19px;display:grid;place-items:center}.icon-btn:hover{background:#18181b;color:var(--text)}.title-btn{justify-self:center;color:var(--soft);font-size:14px;font-weight:550;padding:8px 12px;border-radius:9px}.title-btn:hover{background:#18181b}.title-btn span{color:#777;margin-left:4px}.top-actions{display:flex;justify-content:flex-end;gap:2px}.mobile-only{display:none}.chat-view{min-height:0;flex:1;display:flex;flex-direction:column}.chat{flex:1;overflow:auto;padding:24px max(16px,calc((100% - 850px)/2));scroll-behavior:smooth}.welcome{min-height:65%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:var(--muted);padding:35px 12px}.welcome img{border-radius:17px;margin-bottom:17px}.welcome h1{color:var(--text);font-size:27px;line-height:1.2;margin:0 0 7px;font-weight:600;letter-spacing:-.5px}.welcome p{margin:0;font-size:14px}.suggestions{display:grid;grid-template-columns:repeat(2,minmax(130px,1fr));gap:8px;margin-top:24px;max-width:520px;width:100%}.suggestions button{border:1px solid var(--line);background:#121214;border-radius:12px;padding:11px 12px;text-align:left;color:#c9c9cf;font-size:12px}.suggestions button:hover{background:#19191c}
+.message-row{display:flex;gap:10px;margin:0 auto 24px;max-width:850px;width:100%;animation:rise .16s ease-out}.message-row.user{justify-content:flex-end}.message-avatar{width:29px;height:29px;border-radius:9px;flex:0 0 29px;display:grid;place-items:center;font-size:11px;color:#ddd;background:#25252a}.message-row.user .message-avatar{display:none}.message-content{max-width:calc(100% - 40px);font-size:15px;line-height:1.65;overflow-wrap:anywhere}.message-row.user .message-content{background:#2a2a2f;border-radius:18px;padding:9px 13px;max-width:78%;white-space:pre-wrap}.message-row.ai .message-content{white-space:pre-wrap}.message-actions{display:flex;gap:4px;margin-top:5px;opacity:0;transition:opacity .15s}.message-row:hover .message-actions,.message-actions:focus-within{opacity:1}.message-actions button{font-size:11px;color:#777;padding:3px 6px;border-radius:6px}.message-actions button:hover{background:#1b1b1e;color:#ddd}@keyframes rise{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.composer-wrap{width:min(850px,calc(100% - 24px));margin:0 auto;padding:8px 0 max(14px,env(safe-area-inset-bottom));}.composer{border:1px solid #36363b;background:#151517;border-radius:20px;display:flex;align-items:flex-end;padding:8px;box-shadow:0 8px 30px #0005}.composer:focus-within{border-color:#45454d}.composer textarea{flex:1;min-width:0;max-height:160px;resize:none;background:none;border:0;padding:8px 7px;line-height:1.45;color:var(--text)}.composer textarea::placeholder{color:#777}.composer-btn{width:36px;height:36px;border-radius:10px;color:#999;display:grid;place-items:center;font-size:21px;flex:0 0 36px}.composer-btn:hover{background:#222225;color:#eee}.send-btn{width:36px;height:36px;border-radius:11px;background:#f4f4f5;color:#111;display:grid;place-items:center;flex:0 0 36px;font-size:19px}.send-btn:hover{background:white}.stop-btn{width:36px;height:36px;border-radius:11px;background:#f4f4f5;display:grid;place-items:center}.stop-btn span{width:11px;height:11px;background:#111;border-radius:2px}.composer-meta{display:flex;justify-content:center;gap:10px;color:#666;font-size:10px;padding-top:7px}.composer-meta button{color:#888}.attachment{width:min(850px,calc(100% - 24px));margin:0 auto 4px;padding:7px 10px;border:1px solid var(--line);border-radius:10px;color:#aaa;font-size:11px;background:#121214}.sheet[hidden]{display:none}.sheet{position:fixed;inset:0;background:#0009;display:flex;align-items:flex-end;justify-content:center;z-index:20;padding:12px}.sheet-card{width:min(600px,100%);max-height:min(80dvh,720px);overflow:auto;background:#171719;border:1px solid #303035;border-radius:18px;padding:16px;box-shadow:0 25px 80px #000b}.sheet-card.wide{width:min(760px,100%)}.sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.sheet-head strong{font-size:15px}.close-sheet{width:32px;height:32px;border-radius:9px;color:#999;font-size:22px}.close-sheet:hover{background:#232326;color:white}.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.tool-grid button{border:1px solid var(--line);background:#121214;border-radius:12px;padding:13px;text-align:left;display:grid;grid-template-columns:30px 1fr;column-gap:7px}.tool-grid b{grid-row:span 2;color:#aaa}.tool-grid span{font-size:13px}.tool-grid small{color:#777;font-size:10px}.large-input{width:100%;min-height:130px;background:#101012;border:1px solid var(--line);border-radius:12px;padding:12px;resize:vertical}.sheet-actions{display:flex;align-items:center;gap:9px;margin-top:10px}.sheet-actions span{font-size:11px;color:#888}.primary,.secondary{border-radius:10px;padding:10px 14px;font-weight:600}.primary{background:#f4f4f5;color:#111}.secondary{background:#242428;color:#eee;margin-top:10px}.result-box{min-height:180px;white-space:pre-wrap;overflow:auto;background:#0e0e10;border:1px solid var(--line);border-radius:12px;padding:12px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}.search-form{display:flex;gap:8px}.search-form input{flex:1;min-width:0;background:#101012;border:1px solid var(--line);border-radius:10px;padding:10px}.result-list{display:grid;gap:7px;margin-top:12px}.result-link{display:block;color:#ddd;text-decoration:none;border:1px solid var(--line);padding:10px;border-radius:10px;background:#121214;font-size:12px}.result-link:hover{background:#1c1c20}.sheet-muted{color:#888;font-size:11px;line-height:1.5}.memory-item{display:flex;justify-content:space-between;gap:8px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:9px;color:#ccc;font-size:12px}.memory-item button{color:#888;font-size:11px}.image-output{margin-top:12px;min-height:150px;border:1px dashed var(--line);border-radius:12px;display:grid;place-items:center;overflow:hidden;color:#777;font-size:11px}.image-output img{max-width:100%;max-height:45vh}.status-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.status-box{border:1px solid var(--line);border-radius:10px;padding:10px}.status-box strong{display:block;font-size:12px}.status-box span{display:block;color:#777;font-size:10px;margin-top:4px}.backdrop{display:none}
+@media(max-width:760px){.sidebar{position:fixed;inset:0 auto 0 0;z-index:30;transform:translateX(-102%);transition:transform .2s;width:min(300px,88vw);box-shadow:15px 0 50px #0008}.sidebar.open{transform:none}.backdrop{position:fixed;inset:0;background:#0009;z-index:25}.backdrop.open{display:block}.mobile-only{display:grid}.topbar{grid-template-columns:48px 1fr 80px}.chat{padding:18px 13px}.message-content{font-size:14px}.message-row.user .message-content{max-width:85%}.composer-wrap{width:calc(100% - 16px)}.composer-meta{font-size:9px}.suggestions{grid-template-columns:1fr 1fr}.welcome h1{font-size:24px}}
+@media(max-width:430px){.suggestions{grid-template-columns:1fr}.topbar{height:54px}.composer{border-radius:18px}.tool-grid{grid-template-columns:1fr 1fr}.status-grid{grid-template-columns:1fr}}
+
+
+===== FILE: static/app.js =====
+const $ = id => document.getElementById(id);
+const chat = $('chat'), input = $('message'), form = $('form'), send = $('send'), stop = $('stop');
+let attached = null, currentStream = null, allMessages = [], capabilities = {};
+
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function openSheet(id){$(id).hidden=false;document.body.classList.add('modal-open')}
+function closeSheet(id){$(id).hidden=true;if(!document.querySelector('.sheet:not([hidden])'))document.body.classList.remove('modal-open')}
+function setStatus(text){document.body.dataset.status=text}
+async function request(url,options={}){const r=await fetch(url,{credentials:'same-origin',...options});const d=await r.json().catch(()=>({error:'Invalid server response'}));if(!r.ok)throw Error(d.error||`Request failed (${r.status})`);return d}
+async function post(url,body){return request(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})}
+
+function clearWelcome(){const w=$('welcome');if(w)w.remove()}
+function addMessage(role,text,opts={}){
+  clearWelcome();
+  const row=document.createElement('div');row.className=`message-row ${role}`;
+  const avatar=document.createElement('div');avatar.className='message-avatar';avatar.textContent=role==='ai'?'A':'You';
+  const wrap=document.createElement('div');wrap.className='message-content';wrap.textContent=text||'';
+  row.append(avatar,wrap);
+  if(role==='ai' && opts.actions!==false){
+    const actions=document.createElement('div');actions.className='message-actions';
+    const copy=document.createElement('button');copy.textContent='Copy';copy.onclick=()=>navigator.clipboard?.writeText(wrap.textContent);
+    const speak=document.createElement('button');speak.textContent='Speak';speak.onclick=()=>{if('speechSynthesis'in window){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(wrap.textContent))}};
+    actions.append(copy,speak);wrap.appendChild(actions);
+  }
+  chat.appendChild(row);chat.scrollTop=chat.scrollHeight;return wrap;
+}
+function renderHistory(messages){
+  allMessages=messages||[];chat.innerHTML='';
+  if(!allMessages.length){chat.innerHTML=`<div id="welcome" class="welcome"><img src="/static/icons/icon-192.png" alt="" width="58" height="58"><h1>How can I help?</h1><p>Ask anything in Hindi, English or Hinglish.</p><div class="suggestions"><button data-suggest="Explain this topic simply">Explain something</button><button data-suggest="Help me solve my homework step by step">Help with homework</button><button data-suggest="Write and explain code for me">Write code</button><button data-suggest="Search the latest information about this topic">Search the web</button></div></div>`;bindSuggestions();return}
+  allMessages.forEach(m=>addMessage(m.role==='assistant'?'ai':'user',m.content,{actions:m.role==='assistant'}));
+}
+function bindSuggestions(){document.querySelectorAll('[data-suggest]').forEach(b=>b.onclick=()=>{input.value=b.dataset.suggest;input.dispatchEvent(new Event('input'));input.focus()})}
+
+function renderHistoryList(messages){
+  const list=$('historyList'), q=($('historySearch').value||'').toLowerCase();list.innerHTML='';
+  const groups=[];for(let i=0;i<messages.length;i+=2){const first=messages[i];if(first?.role==='user')groups.push({index:i,title:first.content.slice(0,42)||'New chat'});}
+  const filtered=groups.filter(x=>x.title.toLowerCase().includes(q)).reverse();
+  if(!filtered.length){list.innerHTML='<div class="capability-note">No conversations yet.</div>';return}
+  filtered.forEach(x=>{const b=document.createElement('button');b.className='history-item';b.innerHTML='<span>'+escapeHTML(x.title)+'</span>';b.onclick=()=>{chat.innerHTML='';for(let i=x.index;i<Math.min(x.index+2,messages.length);i++){const m=messages[i];addMessage(m.role==='assistant'?'ai':'user',m.content,{actions:m.role==='assistant'})}};list.appendChild(b)});
+}
+async function loadData(){
+  try{const d=await request('/api/history');renderHistory(d.messages||[]);renderHistoryList(d.messages||[]);renderMemories(d.memories||[])}catch(e){setStatus('Offline')}
+}
+
+async function sendMessage(){
+  const message=input.value.trim();if(!message||currentStream)return;
+  addMessage('user',message);input.value='';resizeInput();send.hidden=true;stop.hidden=false;setStatus('Thinking…');
+  try{
+    if(attached?.type==='image'){
+      const body=addMessage('ai','');const d=await post('/api/vision',{prompt:message,image:attached.data});body.textContent=d.reply||'No response.';finishSend();return;
+    }
+    if(window.EventSource && !attached){
+      const body=addMessage('ai','');let got=false;
+      currentStream=new EventSource('/api/chat/stream?message='+encodeURIComponent(message),{withCredentials:true});
+      currentStream.onmessage=e=>{try{const d=JSON.parse(e.data);if(d.error){body.textContent=d.error;currentStream.close();finishSend();return}if(d.delta){got=true;body.textContent+=d.delta;chat.scrollTop=chat.scrollHeight}if(d.done){currentStream.close();currentStream=null;finishSend();loadData()}}catch(err){body.textContent='Invalid streaming response.';finishSend()}};
+      currentStream.onerror=()=>{if(currentStream){currentStream.close();currentStream=null}if(!got)body.textContent='Streaming failed. Tap send again to retry.';finishSend()};return;
+    }
+    const body=addMessage('ai','');const d=await post('/api/chat',{message,attachment_text:attached?.text||''});body.textContent=d.reply||'No response.';loadData();
+  }catch(e){addMessage('ai',e.message,{actions:false})}finally{finishSend()}
+}
+function finishSend(){currentStream?.close();currentStream=null;send.hidden=false;stop.hidden=true;setStatus(navigator.onLine?'Online':'Offline');if(attached){attached=null;$('attachment').hidden=true;$('attachment').textContent=''}input.focus()}
+stop.onclick=()=>{if(currentStream){currentStream.close();currentStream=null;setStatus('Stopped');send.hidden=false;stop.hidden=true}}
+form.onsubmit=e=>{e.preventDefault();sendMessage()};
+input.oninput=resizeInput;function resizeInput(){input.style.height='auto';input.style.height=Math.min(input.scrollHeight,160)+'px'}
+
+$('attachBtn').onclick=()=>$('fileInput').click();
+$('fileInput').onchange=async()=>{const f=$('fileInput').files[0];if(!f)return;$('attachment').hidden=false;$('attachment').textContent='Reading '+f.name+'…';const fd=new FormData();fd.append('file',f);try{const d=await request('/api/upload',{method:'POST',body:fd});attached=d;$('attachment').textContent=`📎 ${d.name} attached`;if(d.type==='image')attached.text='Image attached.'}catch(e){attached=null;$('attachment').textContent=e.message}};
+
+$('mic').onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Voice input is not supported by this browser.');return}const r=new SR();r.interimResults=true;r.lang=navigator.language||'en-IN';r.onresult=e=>{input.value=Array.from(e.results).map(x=>x[0].transcript).join('');resizeInput()};r.start()};
+
+$('newChatTop').onclick=$('newChatSide').onclick=()=>{renderHistory([]);input.focus();if(window.innerWidth<761)closeSidebar()};
+$('clearHistory').onclick=async()=>{if(!confirm('Clear this conversation history?'))return;try{await request('/api/history',{method:'DELETE'});renderHistory([]);renderHistoryList([])}catch(e){alert(e.message)}};
+$('historySearch').oninput=()=>renderHistoryList(allMessages);
+$('openSidebar').onclick=()=>{$('sidebar').classList.add('open');$('backdrop').classList.add('open')};$('closeSidebar').onclick=closeSidebar;$('backdrop').onclick=closeSidebar;function closeSidebar(){$('sidebar').classList.remove('open');$('backdrop').classList.remove('open')}
+
+$('toolsBtn').onclick=()=>openSheet('toolsSheet');
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>closeSheet(b.dataset.close));
+document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;closeSheet('toolsSheet');if(a==='code')openSheet('codeSheet');if(a==='web')openSheet('webSheet');if(a==='memory')openSheet('memorySheet');if(a==='settings')openSheet('settingsSheet');if(a==='image'){if(capabilities.image_generation)openSheet('imageSheet');else alert('Image generation is not configured on this server.')}});
+
+$('runCode').onclick=async()=>{const task=$('codeTask').value.trim();if(!task)return;$('runCode').disabled=true;$('codeStatus').textContent='Working…';try{$('codeOutput').textContent=(await post('/api/code',{task})).reply||''}catch(e){$('codeOutput').textContent=e.message}finally{$('runCode').disabled=false;$('codeStatus').textContent=''}};
+$('searchForm').onsubmit=async e=>{e.preventDefault();const q=$('searchQuery').value.trim();if(!q)return;$('searchOutput').textContent='Searching…';try{const d=await post('/api/search',{query:q});$('searchOutput').innerHTML='';(d.results||[]).forEach(x=>{const a=document.createElement('a');a.className='result-link';a.href=x.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=x.title||x.url;$('searchOutput').appendChild(a)})}catch(err){$('searchOutput').textContent=err.message}};
+$('memoryForm').onsubmit=async e=>{e.preventDefault();const t=$('memoryText').value.trim();if(!t)return;try{await post('/api/memory',{memory:t});$('memoryText').value='';const d=await request('/api/history');renderMemories(d.memories||[])}catch(err){alert(err.message)}};
+function renderMemories(ms){const box=$('memoryList');box.innerHTML='';if(!ms.length){box.innerHTML='<div class="capability-note">No saved memories.</div>';return}ms.forEach(m=>{const row=document.createElement('div');row.className='memory-item';const span=document.createElement('span');span.textContent=m.memory;const b=document.createElement('button');b.textContent='Delete';b.onclick=async()=>{await request('/api/memory/'+m.id,{method:'DELETE'});const d=await request('/api/history');renderMemories(d.memories||[])};row.append(span,b);box.appendChild(row)})}
+$('runImage').onclick=async()=>{const p=$('imagePrompt').value.trim();if(!p)return;$('runImage').disabled=true;$('imageStatus').textContent='Generating…';try{const d=await post('/api/image',{prompt:p,size:$('imageSize').value});$('imageOutput').innerHTML='';const img=new Image();img.src=d.image;img.alt=p;img.loading='lazy';$('imageOutput').appendChild(img)}catch(e){$('imageOutput').textContent=e.message}finally{$('runImage').disabled=false;$('imageStatus').textContent=''}};
+
+$('exportData').onclick=()=>{const blob=new Blob([JSON.stringify({messages:allMessages,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='aikiyara-conversation.json';a.click();URL.revokeObjectURL(a.href)};
+$('install').onclick=async()=>{if(window.__installPrompt){await window.__installPrompt.prompt();window.__installPrompt=null;$('install').hidden=true}};
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window.__installPrompt=e;$('install').hidden=false});
+window.addEventListener('online',()=>setStatus('Online'));window.addEventListener('offline',()=>setStatus('Offline'));
+window.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSheet('toolsSheet')}if(e.key==='Escape'){document.querySelectorAll('.sheet:not([hidden])').forEach(x=>closeSheet(x.id));closeSidebar()}});
+if('serviceWorker'in navigator)navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+
+request('/api/capabilities').then(d=>{capabilities=d;const enabled=Object.entries(d).filter(([,v])=>v===true||v==='browser').length;$('capabilityNote').textContent=`${enabled} server/browser capabilities available`;if(!d.image_generation){$('imageSideLink').style.display='none';$('imageTool').style.display='none'}$('statusGrid').innerHTML=Object.entries(d).map(([k,v])=>`<div class="status-box"><strong>${escapeHTML(k.replaceAll('_',' '))}</strong><span>${v===true?'Ready':v==='browser'?'Browser feature':'Not configured'}</span></div>`).join('')}).catch(()=>{$('capabilityNote').textContent='Server unavailable'});
+loadData();bindSuggestions();setStatus(navigator.onLine?'Online':'Offline');
+
+
+===== FILE: requirements-llm.txt =====
+transformers>=4.45,<6
+torch>=2.2
+pypdf>=5,<7
+python-docx>=1.1,<2
+
+
+===== FILE: engine/llm_adapter.py =====
+class LocalTransformersAdapter:
+    """Optional inference adapter for an existing causal language model.
+
+    This class does not train or create a foundation model. The caller supplies
+    a compatible model identifier that is available locally or can be downloaded.
+    """
+
+    def __init__(self, model_id: str):
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        self.model = AutoModelForCausalLM.from_pretrained(model_id)
+        self.model.eval()
+        self.device = next(self.model.parameters()).device
+        if self.tokenizer.pad_token_id is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+
+    def generate(self, system: str, history: list[dict], user_message: str) -> str:
+        prompt_parts = [system.strip(), ""]
+        for item in history[-8:]:
+            role = str(item.get("role", "user")).upper()
+            content = str(item.get("content", ""))
+            prompt_parts.append(f"{role}: {content}")
+        prompt_parts.append(f"USER: {user_message}")
+        prompt_parts.append("ASSISTANT:")
+        prompt = "\n".join(prompt_parts)
+
+        inputs = self.tokenizer(prompt, return_tensors="pt")
+        inputs = {k: v.to(self.device) for k, v in inputs.items()}
+        output = self.model.generate(
+            **inputs,
+            max_new_tokens=160,
+            do_sample=True,
+            temperature=0.7,
+            top_p=0.9,
+            pad_token_id=self.tokenizer.pad_token_id,
+        )
+        generated = output[0][inputs["input_ids"].shape[1]:]
+        return self.tokenizer.decode(generated, skip_special_tokens=True).strip()
+
+
+===== FILE: engine/provider.py =====
+"""LLM/image provider gateways.
+
+Supports native Gemini REST via GEMINI_API_KEY and OpenAI-compatible APIs as a fallback.
+Secrets are read only from server environment variables.
+"""
+import base64
+import json
+import os
+import urllib.parse
+import urllib.request
+
+
+def _post_json(url, payload, api_key=None, headers=None, timeout=90):
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(url, data=data, method="POST", headers={"Content-Type": "application/json", **(headers or {})})
+    if api_key:
+        req.add_header("Authorization", f"Bearer {api_key}")
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+class OpenAICompatibleProvider:
+    """Provider facade: native Gemini when GEMINI_API_KEY is set, otherwise OpenAI-compatible."""
+
+    def __init__(self):
+        self.gemini_key = os.getenv("GEMINI_API_KEY", "").strip()
+        self.gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
+        self.base_url = os.getenv("UF_LLM_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+        self.api_key = os.getenv("UF_LLM_API_KEY", "").strip()
+        self.model = os.getenv("UF_LLM_MODEL", "").strip()
+
+    @property
+    def configured(self):
+        return bool(self.gemini_key or (self.api_key and self.model))
+
+    @property
+    def provider_name(self):
+        return "Gemini" if self.gemini_key else "OpenAI-compatible"
+
+    def _gemini_contents(self, messages):
+        contents = []
+        for item in messages:
+            role = "model" if item.get("role") == "assistant" else "user"
+            content = item.get("content", "")
+            parts = []
+            if isinstance(content, str):
+                parts.append({"text": content})
+            elif isinstance(content, list):
+                for part in content:
+                    if part.get("type") == "text":
+                        parts.append({"text": str(part.get("text", ""))})
+                    elif part.get("type") == "image_url":
+                        url = part.get("image_url", {}).get("url", "")
+                        if url.startswith("data:") and ";base64," in url:
+                            header, b64 = url.split(";base64,", 1)
+                            mime = header[5:] or "image/jpeg"
+                            parts.append({"inline_data": {"mime_type": mime, "data": b64}})
+            if parts:
+                contents.append({"role": role, "parts": parts})
+        return contents
+
+    def _gemini_payload(self, system, messages, temperature=.7, max_tokens=800):
+        return {
+            "systemInstruction": {"parts": [{"text": system}]},
+            "contents": self._gemini_contents(messages),
+            "generationConfig": {"temperature": temperature, "maxOutputTokens": max_tokens},
+        }
+
+    def _gemini_url(self, stream=False):
+        model = urllib.parse.quote(self.gemini_model, safe="")
+        method = "streamGenerateContent" if stream else "generateContent"
+        suffix = "&alt=sse" if stream else ""
+        return f"https://generativelanguage.googleapis.com/v1beta/models/{model}:{method}?key={urllib.parse.quote(self.gemini_key)}{suffix}"
+
+    def _gemini_chat(self, system, messages, temperature=.7, max_tokens=800):
+        r = _post_json(self._gemini_url(), self._gemini_payload(system, messages, temperature, max_tokens), timeout=120)
+        try:
+            return r["candidates"][0]["content"]["parts"][0]["text"].strip()
+        except (KeyError, IndexError, TypeError) as exc:
+            raise RuntimeError("Gemini returned no text response.") from exc
+
+    def chat(self, system, messages, temperature=.7, max_tokens=800):
+        if not self.configured:
+            raise RuntimeError("No real LLM provider is configured.")
+        if self.gemini_key:
+            return self._gemini_chat(system, messages, temperature, max_tokens)
+        payload = {"model": self.model, "messages": [{"role": "system", "content": system}] + messages,
+                   "temperature": temperature, "max_tokens": max_tokens, "stream": False}
+        r = _post_json(f"{self.base_url}/chat/completions", payload, self.api_key, timeout=120)
+        return r["choices"][0]["message"]["content"].strip()
+
+    def stream(self, system, messages, temperature=.7, max_tokens=1200):
+        if not self.configured:
+            raise RuntimeError("No real LLM provider is configured.")
+        if self.gemini_key:
+            data = json.dumps(self._gemini_payload(system, messages, temperature, max_tokens)).encode("utf-8")
+            req = urllib.request.Request(self._gemini_url(stream=True), data=data, method="POST",
+                                         headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                for raw in resp:
+                    line = raw.decode("utf-8", "ignore").strip()
+                    if not line.startswith("data:"):
+                        continue
+                    try:
+                        obj = json.loads(line[5:].strip())
+                        for part in obj.get("candidates", [{}])[0].get("content", {}).get("parts", []):
+                            text = part.get("text")
+                            if text:
+                                yield text
+                    except json.JSONDecodeError:
+                        continue
+            return
+
+        payload = {"model": self.model, "messages": [{"role": "system", "content": system}] + messages,
+                   "temperature": temperature, "max_tokens": max_tokens, "stream": True}
+        data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(f"{self.base_url}/chat/completions", data=data, method="POST",
+                                     headers={"Content-Type": "application/json", "Authorization": f"Bearer {self.api_key}"})
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            for raw in resp:
+                line = raw.decode("utf-8", "ignore").strip()
+                if not line.startswith("data:"):
+                    continue
+                item = line[5:].strip()
+                if item == "[DONE]":
+                    break
+                try:
+                    obj = json.loads(item)
+                    delta = obj.get("choices", [{}])[0].get("delta", {}).get("content")
+                    if delta:
+                        yield delta
+                except json.JSONDecodeError:
+                    continue
+
+
+class ImageProvider:
+    def __init__(self):
+        self.base_url = os.getenv("UF_IMAGE_BASE_URL", "").rstrip("/")
+        self.api_key = os.getenv("UF_IMAGE_API_KEY", "").strip()
+        self.model = os.getenv("UF_IMAGE_MODEL", "").strip()
+
+    @property
+    def configured(self):
+        return bool(self.base_url and self.api_key and self.model)
+
+    def generate(self, prompt, size="1024x1024"):
+        if not self.configured:
+            raise RuntimeError("Image generation is not configured.")
+        payload = {"model": self.model, "prompt": prompt, "size": size, "n": 1, "response_format": "b64_json"}
+        r = _post_json(f"{self.base_url}/images/generations", payload, self.api_key)
+        item = r["data"][0]
+        b64 = item.get("b64_json")
+        if b64:
+            return "data:image/png;base64," + b64
+        return item.get("url")
+
+
+===== FILE: engine/__init__.py =====
+
+
+
+===== FILE: engine/search.py =====
+"""Safe, fixed-domain web search adapter. No arbitrary URL fetching."""
+import html,re,urllib.parse,urllib.request
+
+def search(query,limit=5):
+    q=urllib.parse.quote_plus(query[:300]); url='https://html.duckduckgo.com/html/?q='+q
+    req=urllib.request.Request(url,headers={'User-Agent':'Aikiyara/1.0'})
+    with urllib.request.urlopen(req,timeout=12) as r: text=r.read().decode('utf-8','ignore')
+    out=[]
+    for m in re.finditer(r'class="result__a"[^>]*href="([^"]+)"[^>]*>(.*?)</a>',text,re.S):
+        href=html.unescape(m.group(1)); title=re.sub('<.*?>','',html.unescape(m.group(2))).strip()
+        if href.startswith('//'): href='https:'+href
+        out.append({'title':title,'url':href})
+        if len(out)>=limit: break
+    return out
+
+
+===== FILE: engine/emotion.py =====
+import re
+from collections import defaultdict
+
+LEXICON = {
+    "breakup": ["breakup", "break up", "ex", "relationship ended", "left me", "ब्रेकअप", "ब्रेक अप"],
+    "loss": ["lost", "miss", "missing", "gone", "खो", "याद आ रही", "याद आता"],
+    "anger": ["angry", "furious", "irritated", "hate", "annoyed", "गुस्सा", "नाराज़", "चिढ़"],
+    "fear": ["scared", "afraid", "worried", "anxious", "nervous", "डर", "डरा", "चिंता", "घबर"],
+    "loneliness": ["lonely", "alone", "no one", "nobody", "अकेला", "अकेली", "कोई नहीं"],
+    "confusion": ["confused", "don't know", "do not know", "not sure", "unclear", "समझ नहीं", "पता नहीं"],
+    "joy": ["happy", "excited", "glad", "great", "amazing", "खुश", "उत्साहित", "बहुत अच्छा"],
+    "sadness": ["sad", "crying", "upset", "hurt", "depressed", "उदास", "रो रहा", "रो रही", "दुखी"],
+    "stress": ["stress", "stressed", "pressure", "overwhelmed", "तनाव", "परेशान", "दबाव"],
+}
+
+MAPPING = {
+    "breakup": ["hurt", "grief", "conflict", "uncertainty"],
+    "loss": ["sadness", "grief", "longing"],
+    "anger": ["anger", "frustration"],
+    "fear": ["fear", "worry", "uncertainty"],
+    "loneliness": ["loneliness", "need for connection"],
+    "confusion": ["uncertainty", "conflict"],
+    "joy": ["happiness", "excitement"],
+    "sadness": ["sadness", "hurt"],
+    "stress": ["stress", "overload", "worry"],
+}
+NEGATIONS = {"not", "no", "never", "isn't", "wasn't", "don't", "do not", "didn't", "नहीं", "मत"}
+INTENSIFIERS = {"very", "really", "so", "extremely", "बहुत", "बहुत ज्यादा", "काफी", "बहुत ही"}
+
+
+def _contains(text: str, term: str) -> bool:
+    if any(ord(c) > 127 for c in term):
+        return term.casefold() in text.casefold()
+    return bool(re.search(r"(?<!\w)" + re.escape(term) + r"(?!\w)", text, re.I))
+
+
+def _is_negated(text: str, term: str) -> bool:
+    if any(ord(c) > 127 for c in term):
+        return False
+    match = re.search(r"(?<!\w)" + re.escape(term) + r"(?!\w)", text, re.I)
+    if not match:
+        return False
+    window = text[max(0, match.start() - 28):match.start()].casefold()
+    return any(re.search(r"(?<!\w)" + re.escape(n) + r"(?!\w)", window) for n in NEGATIONS)
+
+
+def _intensity(text: str, hits: list[str]) -> float:
+    if not hits:
+        return 0.0
+    score = 0.5
+    if "!" in text or "!!" in text:
+        score += 0.1
+    if any(_contains(text, x) for x in INTENSIFIERS):
+        score += 0.2
+    if len(hits) >= 2:
+        score += 0.1
+    return min(score, 1.0)
+
+
+def analyze_emotional_signals(message: str, history: list[dict]) -> dict:
+    text = message.casefold()
+    scores = defaultdict(float)
+    observed = []
+    for category, words in LEXICON.items():
+        hits = [w for w in words if _contains(text, w) and not _is_negated(text, w)]
+        if hits:
+            intensity = _intensity(text, hits)
+            scores[category] += intensity
+            observed.append({"category": category, "matched_terms": hits, "intensity": round(intensity, 2)})
+
+    recent = " ".join(str(x.get("content", "")) for x in history[-8:] if x.get("role") == "user").casefold()
+    if recent and "breakup" in recent and "breakup" not in scores:
+        scores["breakup"] += 0.25
+        observed.append({"category": "recent_relationship_context", "matched_terms": ["recent context"], "intensity": 0.25})
+
+    hypotheses = []
+    for category, _score in sorted(scores.items(), key=lambda x: x[1], reverse=True):
+        for hypothesis in MAPPING.get(category, []):
+            if hypothesis not in hypotheses:
+                hypotheses.append(hypothesis)
+
+    if not observed:
+        confidence = "low"
+    elif len(observed) == 1:
+        confidence = "medium"
+    else:
+        confidence = "medium-high"
+
+    primary = max(scores, key=scores.get) if scores else None
+    return {
+        "observed_signals": observed,
+        "hypotheses": hypotheses[:8],
+        "confidence": confidence,
+        "primary_emotion": primary,
+        "emotion_scores": {k: round(min(v, 1.0), 2) for k, v in sorted(scores.items(), key=lambda x: x[1], reverse=True)},
+    }
+
+
+===== FILE: engine/files.py =====
+from pathlib import Path
+
+def extract_text(path):
+    p=Path(path); ext=p.suffix.lower()
+    if ext in {'.txt','.md','.csv','.json','.py','.js','.html','.css'}: return p.read_text(errors='ignore')[:120000]
+    if ext=='.pdf':
+        try:
+            from pypdf import PdfReader
+            return '\n'.join((x.extract_text() or '') for x in PdfReader(str(p)).pages)[:120000]
+        except Exception as e: raise RuntimeError('PDF extraction unavailable: install pypdf.') from e
+    if ext=='.docx':
+        try:
+            from docx import Document
+            return '\n'.join(x.text for x in Document(str(p)).paragraphs)[:120000]
+        except Exception as e: raise RuntimeError('DOCX extraction unavailable: install python-docx.') from e
+    raise RuntimeError('Unsupported file type.')
+
+
+===== FILE: engine/response.py =====
+import os
+from .llm_adapter import LocalTransformersAdapter
+from .provider import OpenAICompatibleProvider
+
+SYSTEM_PROMPT = """You are Aikiyara, a multilingual AI assistant.
+You can converse naturally in the user's language or mixed languages. Never claim to read minds; emotional analysis is uncertain evidence.
+Be helpful, truthful and concise. Preserve context. If asked for code, provide working code and explain important assumptions. If asked for an image, describe the prompt clearly for the configured image generator. Do not invent memories, tools, files, citations, or completed actions.
+"""
+
+_PROVIDER = OpenAICompatibleProvider()
+_ADAPTER = None
+
+def _adapter():
+    global _ADAPTER
+    if _ADAPTER is not None:
+        return _ADAPTER
+    model_id = os.getenv('UF_MODEL_ID', '').strip()
+    if not model_id:
+        return None
+    try:
+        _ADAPTER = LocalTransformersAdapter(model_id)
+    except Exception:
+        _ADAPTER = None
+    return _ADAPTER
+
+
+def _fallback(message, signals):
+    primary = signals.get('primary_emotion')
+    if primary in {'fear', 'stress'}:
+        return "I may be picking up some worry or pressure. I could be wrong—what part is bothering you most?"
+    if primary in {'sadness', 'loss', 'breakup'}:
+        return "That sounds emotionally heavy. I don't want to assume exactly how you feel. What happened?"
+    if primary == 'anger':
+        return "I may be picking up frustration or anger. What happened just before this?"
+    if primary == 'loneliness':
+        return "It sounds like connection or support may matter here. What would help most right now?"
+    if primary == 'joy':
+        return "That sounds positive! Tell me what happened."
+    return "I'm listening. Tell me a little more and I'll use the context rather than jumping to conclusions."
+
+
+def generate_response(message, history, signals, memories=None):
+    memories = memories or []
+    context = SYSTEM_PROMPT + '\nUncertain emotion signals: ' + str(signals)
+    if memories:
+        context += '\nUser-approved memories (use only when relevant): ' + '; '.join(memories)
+    messages = [{'role': x.get('role', 'user'), 'content': x.get('content', '')} for x in history[-16:]]
+    messages.append({'role': 'user', 'content': message})
+
+    if _PROVIDER.configured:
+        try:
+            return _PROVIDER.chat(context, messages)
+        except Exception:
+            pass
+    adapter = _adapter()
+    if adapter is not None:
+        try:
+            return adapter.generate(context, history, message)[:4000]
+        except Exception:
+            pass
+    return _fallback(message, signals)
+
+
+===== FILE: engine/memory.py =====
+import sqlite3
+from pathlib import Path
+DB_PATH=Path(__file__).resolve().parent.parent/'data'/'ultra_feeling.sqlite3'
+def _conn():
+    DB_PATH.parent.mkdir(parents=True,exist_ok=True); c=sqlite3.connect(DB_PATH)
+    c.execute('CREATE TABLE IF NOT EXISTS messages (session_id TEXT, role TEXT, content TEXT, created_at REAL DEFAULT (strftime(\'%s\',\'now\')))')
+    c.execute('CREATE INDEX IF NOT EXISTS idx_messages_session ON messages(session_id,created_at)')
+    c.execute('CREATE TABLE IF NOT EXISTS memories (id INTEGER PRIMARY KEY AUTOINCREMENT, session_id TEXT, memory TEXT, created_at REAL DEFAULT (strftime(\'%s\',\'now\')))')
+    return c
+def save_message(sid,role,content):
+    with _conn() as c:c.execute('INSERT INTO messages(session_id,role,content) VALUES(?,?,?)',(sid,role,content[:8000]))
+def load_messages(sid,limit=40):
+    with _conn() as c: rows=c.execute('SELECT role,content FROM messages WHERE session_id=? ORDER BY created_at DESC LIMIT ?',(sid,limit)).fetchall()
+    return list(reversed([{'role':r,'content':t} for r,t in rows]))
+def save_memory(sid,memory):
+    with _conn() as c:c.execute('INSERT INTO memories(session_id,memory) VALUES(?,?)',(sid,memory.strip()[:1000]))
+def load_memories(sid,limit=30):
+    with _conn() as c: rows=c.execute('SELECT id,memory FROM memories WHERE session_id=? ORDER BY created_at DESC LIMIT ?',(sid,limit)).fetchall()
+    return [{'id':i,'memory':m} for i,m in rows]
+def delete_memory(sid,memory_id):
+    with _conn() as c:return c.execute('DELETE FROM memories WHERE id=? AND session_id=?',(int(memory_id),sid)).rowcount>0
+def clear_history(sid):
+    with _conn() as c:c.execute('DELETE FROM messages WHERE session_id=?',(sid,))
+
+
+===== FILE: engine/conversation.py =====
+from .emotion import analyze_emotional_signals
+from .response import generate_response
+class ConversationEngine:
+    def __init__(self):self.history=[];self.last_signals={}
+    def respond(self,message,memories=None):
+        self.last_signals=analyze_emotional_signals(message,self.history)
+        reply=generate_response(message,self.history,self.last_signals,memories=memories)
+        self.history.extend([{'role':'user','content':message},{'role':'assistant','content':reply}])
+        self.history=self.history[-40:]
+        return {'reply':reply,**self.last_signals}
+
+
+===== FILE: engine/retrieval.py =====
+import re
+
+def relevant_memories(query, memories, limit=8):
+    q=set(re.findall(r'[\w\u0900-\u097F]+',query.casefold()))
+    scored=[]
+    for m in memories:
+        text=m.get('memory',m) if isinstance(m,dict) else m
+        words=set(re.findall(r'[\w\u0900-\u097F]+',str(text).casefold()))
+        score=len(q & words)
+        if score: scored.append((score,text))
+    scored.sort(reverse=True,key=lambda x:x[0]); return [x[1] for x in scored[:limit]]
+
+
+===== FILE: README.md =====
+# Aikiyara — AI-first PWA
+
+A clean, mobile-first AI assistant interface with a server-side LLM gateway, conversation history, memory, coding assistance, file understanding, web search, voice input and optional image generation.
+
+## Gemini setup (recommended)
+Set these on the server (for example Render Environment Variables):
+
+```text
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-2.5-flash
+```
+
+The browser never receives the Gemini key. The server calls the Gemini REST API.
+
+An OpenAI-compatible fallback is also supported with `UF_LLM_BASE_URL`, `UF_LLM_API_KEY`, and `UF_LLM_MODEL`.
+
+## Run
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+## Real features in this repository
+- Native Gemini chat and streaming when `GEMINI_API_KEY` is configured.
+- Conversation history stored per browser session in SQLite.
+- User-approved memory.
+- Text/PDF/DOCX/code file extraction.
+- Image understanding when the configured LLM supports multimodal input.
+- Coding-assistant endpoint.
+- Public web search adapter.
+- Browser voice input and text-to-speech for assistant replies.
+- PWA installation and offline shell.
+- Server rate limiting and security headers.
+
+## Important limitations
+This is an application using an existing model API, not a newly trained foundation model. It does not include user accounts, multi-device cloud history, a server-side job scheduler, arbitrary server code execution, a true payment system, or a custom multi-search engine. Image generation requires a separately configured OpenAI-compatible image provider. The UI intentionally hides unavailable image generation instead of showing a dead button.
+
+The app uses cookie-based anonymous sessions. For a production multi-user deployment, add real authentication and a durable user identity/database isolation layer before exposing private data to multiple users.
+
+
+===== FILE: .gitignore =====
+__pycache__/
+*.pyc
+.venv/
+.env
+
+
+===== FILE: templates/index.html =====
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="description" content="Aikiyara — a clean, multilingual AI assistant PWA">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/static/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Aikiyara">
+<title>Aikiyara</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside id="sidebar" class="sidebar" aria-label="Conversation sidebar">
+    <div class="side-top">
+      <button id="closeSidebar" class="icon-btn mobile-only" aria-label="Close menu">×</button>
+      <div class="wordmark"><img src="/static/icons/icon-192.png" alt="" width="30" height="30"><span>Aikiyara</span></div>
+      <button id="newChatSide" class="new-chat" type="button"><span>＋</span> New chat</button>
+    </div>
+    <label class="search-box"><span>⌕</span><input id="historySearch" placeholder="Search chats" autocomplete="off"></label>
+    <div class="history-heading"><span>Recent</span><button id="clearHistory" class="text-btn" type="button">Clear</button></div>
+    <div id="historyList" class="history-list"></div>
+    <div class="side-bottom">
+      <button class="side-link" data-action="memory"><span>✦</span> Memory</button>
+      <button class="side-link" data-action="code"><span>⌘</span> Coding</button>
+      <button class="side-link" data-action="web"><span>⌁</span> Web search</button>
+      <button class="side-link" data-action="image" id="imageSideLink"><span>◌</span> Image</button>
+      <button class="side-link" data-action="settings"><span>⚙</span> Settings</button>
+      <div id="capabilityNote" class="capability-note">Connecting…</div>
+    </div>
+  </aside>
+  <div id="backdrop" class="backdrop"></div>
+
+  <main class="main">
+    <header class="topbar">
+      <button id="openSidebar" class="icon-btn" aria-label="Open menu">☰</button>
+      <button id="chatTitle" class="title-btn" type="button" aria-label="Current chat">New chat <span>⌄</span></button>
+      <div class="top-actions">
+        <button id="install" class="icon-btn" hidden aria-label="Install Aikiyara">⇩</button>
+        <button id="newChatTop" class="icon-btn" aria-label="New chat">＋</button>
+      </div>
+    </header>
+
+    <section id="chatView" class="chat-view">
+      <div id="chat" class="chat" aria-live="polite">
+        <div id="welcome" class="welcome">
+          <img src="/static/icons/icon-192.png" alt="" width="58" height="58">
+          <h1>How can I help?</h1>
+          <p>Ask anything in Hindi, English or Hinglish.</p>
+          <div class="suggestions">
+            <button type="button" data-suggest="Explain this topic simply">Explain something</button>
+            <button type="button" data-suggest="Help me solve my homework step by step">Help with homework</button>
+            <button type="button" data-suggest="Write and explain code for me">Write code</button>
+            <button type="button" data-suggest="Search the latest information about this topic">Search the web</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="attachment" class="attachment" hidden></div>
+      <div id="composerWrap" class="composer-wrap">
+        <form id="form" class="composer">
+          <button id="attachBtn" class="composer-btn" type="button" aria-label="Attach file">＋</button>
+          <input id="fileInput" type="file" hidden accept=".txt,.md,.csv,.json,.py,.js,.html,.css,.pdf,.docx,.png,.jpg,.jpeg,.webp">
+          <textarea id="message" rows="1" maxlength="8000" aria-label="Message Aikiyara" placeholder="Message Aikiyara…"></textarea>
+          <button id="mic" class="composer-btn" type="button" aria-label="Voice input">⌕</button>
+          <button id="send" class="send-btn" type="submit" aria-label="Send"><span>↑</span></button>
+          <button id="stop" class="stop-btn" type="button" aria-label="Stop generating" hidden><span></span></button>
+        </form>
+        <div class="composer-meta"><span>Aikiyara can make mistakes. Check important information.</span><button id="toolsBtn" type="button">Tools</button></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="toolsSheet" class="sheet" hidden>
+  <div class="sheet-card">
+    <div class="sheet-head"><strong>Tools</strong><button class="close-sheet" data-close="toolsSheet">×</button></div>
+    <div class="tool-grid">
+      <button data-action="code"><b>⌘</b><span>Code</span><small>Generate & explain</small></button>
+      <button data-action="web"><b>⌁</b><span>Web</span><small>Search current info</small></button>
+      <button data-action="memory"><b>✦</b><span>Memory</span><small>Saved preferences</small></button>
+      <button data-action="image" id="imageTool"><b>◌</b><span>Image</span><small>Only when configured</small></button>
+    </div>
+  </div>
+</div>
+
+<div id="codeSheet" class="sheet" hidden><div class="sheet-card wide"><div class="sheet-head"><strong>Coding</strong><button class="close-sheet" data-close="codeSheet">×</button></div><textarea id="codeTask" class="large-input" maxlength="8000" placeholder="What should I build, fix or explain?"></textarea><div class="sheet-actions"><button id="runCode" class="primary">Generate</button><span id="codeStatus"></span></div><pre id="codeOutput" class="result-box"></pre></div></div>
+<div id="webSheet" class="sheet" hidden><div class="sheet-card wide"><div class="sheet-head"><strong>Web search</strong><button class="close-sheet" data-close="webSheet">×</button></div><form id="searchForm" class="search-form"><input id="searchQuery" maxlength="300" placeholder="Search the web…"><button class="primary">Search</button></form><div id="searchOutput" class="result-list"></div></div></div>
+<div id="memorySheet" class="sheet" hidden><div class="sheet-card wide"><div class="sheet-head"><strong>Memory</strong><button class="close-sheet" data-close="memorySheet">×</button></div><p class="sheet-muted">Only save things you want Aikiyara to remember.</p><form id="memoryForm" class="search-form"><input id="memoryText" maxlength="1000" placeholder="Remember this…"><button class="primary">Save</button></form><div id="memoryList" class="result-list"></div></div></div>
+<div id="imageSheet" class="sheet" hidden><div class="sheet-card wide"><div class="sheet-head"><strong>Image generation</strong><button class="close-sheet" data-close="imageSheet">×</button></div><textarea id="imagePrompt" class="large-input" maxlength="2000" placeholder="Describe an image…"></textarea><div class="sheet-actions"><select id="imageSize"><option>1024x1024</option><option>1536x1024</option><option>1024x1536</option></select><button id="runImage" class="primary">Generate</button><span id="imageStatus"></span></div><div id="imageOutput" class="image-output"></div></div></div>
+<div id="settingsSheet" class="sheet" hidden><div class="sheet-card wide"><div class="sheet-head"><strong>Settings</strong><button class="close-sheet" data-close="settingsSheet">×</button></div><div id="statusGrid" class="status-grid"></div><button id="exportData" class="secondary">Export local conversation data</button><p class="sheet-muted">API keys stay on the server. This PWA does not place your Gemini key in browser code.</p></div></div>
+
+<script src="/static/app.js" defer></script>
+</body>
+</html>
+
+
+===== FILE: tests/test_emotion.py =====
+from engine.emotion import analyze_emotional_signals
+
+
+def test_emotion_detects_hindi_and_intensity():
+    result = analyze_emotional_signals("मैं बहुत परेशान हूँ!!", [])
+    assert result["primary_emotion"] == "stress"
+    assert result["emotion_scores"]["stress"] >= 0.7
+
+
+def test_negation_does_not_mark_happy():
+    result = analyze_emotional_signals("I am not happy", [])
+    assert result["primary_emotion"] != "joy"
+
+
+def test_context_is_used():
+    history = [{"role": "user", "content": "My breakup happened yesterday"}]
+    result = analyze_emotional_signals("I keep thinking about it", history)
+    assert any(x["category"] == "recent_relationship_context" for x in result["observed_signals"])
+
+
+===== FILE: tests/test_app.py =====
+import pytest
+
+flask = pytest.importorskip("flask")
+from app import app
+
+
+def test_home():
+    client = app.test_client()
+    r = client.get("/")
+    assert r.status_code == 200
+    assert "Aikiyara" in r.get_data(as_text=True)
+
+
+def test_chat_requires_json():
+    client = app.test_client()
+    r = client.post("/api/chat", data="hello")
+    assert r.status_code == 400
+
+
+def test_chat_returns_structured_emotion_data():
+    client = app.test_client()
+    r = client.post("/api/chat", json={"message": "I am worried about school"})
+    assert r.status_code == 200
+    data = r.get_json()
+    assert data["reply"]
+    assert "emotion_scores" in data
+    assert "primary_emotion" in data
+
+
+===== FILE: service-worker.js =====
+const CACHE='aikiyara-pwa-v4';
+const ASSETS=['/','/manifest.webmanifest','/static/app.css','/static/app.js','/static/icons/icon-192.png','/static/icons/icon-512.png'];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{
+  if(event.request.method!=='GET') return;
+  const url=new URL(event.request.url);
+  if(url.origin!==self.location.origin) return;
+  // Never cache API responses: chat/history/capabilities must stay fresh.
+  if(url.pathname.startsWith('/api/')) return;
+  event.respondWith(fetch(event.request).then(response=>{
+    if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));}
+    return response;
+  }).catch(()=>caches.match(event.request).then(response=>response||caches.match('/'))));
+});
+
+
+===== FILE: data/train.example.jsonl =====
+{"messages":[{"role":"user","content":"Namaste, aaj school ka pressure hai."},{"role":"assistant","content":"Samajh sakta hoon—main assume nahi karunga ki tum exactly kya feel kar rahe ho. Batao pressure kis cheez ka hai?"}]}
+
+
+===== FILE: .env.example =====
+# Native Gemini (recommended for Aikiyara)
+GEMINI_API_KEY=replace_me
+GEMINI_MODEL=gemini-2.5-flash
+
+# Optional OpenAI-compatible fallback
+UF_LLM_BASE_URL=https://api.openai.com/v1
+UF_LLM_API_KEY=replace_me
+UF_LLM_MODEL=replace_me
+
+# Optional image generation through an OpenAI-compatible image API
+UF_IMAGE_BASE_URL=
+UF_IMAGE_API_KEY=
+UF_IMAGE_MODEL=
+
+# Optional local Transformers model
+# UF_MODEL_ID=local_or_hub_model_id
+COOKIE_SECURE=1
+
+
+===== FILE: app.py =====
+import os,time,json,tempfile
+from collections import deque
+from uuid import uuid4
+from flask import Flask,jsonify,make_response,render_template,request,send_from_directory,Response
+from werkzeug.utils import secure_filename
+from engine.conversation import ConversationEngine
+from engine.memory import load_memories,load_messages,save_memory,save_message,delete_memory,clear_history
+from engine.provider import ImageProvider,OpenAICompatibleProvider
+from engine.response import SYSTEM_PROMPT
+from engine.retrieval import relevant_memories
+from engine.search import search as web_search
+from engine.files import extract_text
+
+app=Flask(__name__); app.config['MAX_CONTENT_LENGTH']=8*1024*1024
+_engines={}; _MAX_SESSIONS=500; _rate_log={}; _RATE_WINDOW_SECONDS,_RATE_LIMIT=60,40
+_llm_provider=OpenAICompatibleProvider(); _image_provider=ImageProvider()
+ALLOWED={'.txt','.md','.csv','.json','.py','.js','.html','.css','.pdf','.docx','.png','.jpg','.jpeg','.webp'}
+
+def _client_key(): return request.cookies.get('uf_session') or request.remote_addr or 'unknown'
+def _rate_limited(key):
+    now=time.monotonic(); b=_rate_log.setdefault(key,deque())
+    while b and now-b[0]>=_RATE_WINDOW_SECONDS:b.popleft()
+    if len(b)>=_RATE_LIMIT:return True
+    b.append(now);return False
+def _get_engine():
+    sid=request.cookies.get('uf_session')
+    if not sid or sid not in _engines:
+        sid=uuid4().hex
+        if len(_engines)>=_MAX_SESSIONS:_engines.pop(next(iter(_engines)))
+        _engines[sid]=ConversationEngine(); _engines[sid].history=load_messages(sid)
+    return sid,_engines[sid]
+def _origin_ok():
+    o=request.headers.get('Origin'); return o in (None,request.host_url.rstrip('/'))
+def _cookie(r,sid):
+    r.set_cookie('uf_session',sid,max_age=2592000,httponly=True,samesite='Lax',secure=os.getenv('COOKIE_SECURE','0')=='1'); return r
+
+@app.after_request
+def headers(r):
+    r.headers.update({'X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Referrer-Policy':'strict-origin-when-cross-origin','Permissions-Policy':'camera=(), microphone=(self), geolocation=()'})
+    r.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; manifest-src 'self'; worker-src 'self'"
+    return r
+@app.errorhandler(413)
+def too_large(_):return jsonify(error='Request is too large.'),413
+@app.get('/')
+def home():return render_template('index.html')
+@app.get('/manifest.webmanifest')
+def manifest():return send_from_directory(app.root_path,'manifest.webmanifest',mimetype='application/manifest+json')
+@app.get('/service-worker.js')
+def sw():
+    r=make_response(send_from_directory(app.root_path,'service-worker.js',mimetype='application/javascript'));r.headers['Service-Worker-Allowed']='/';r.headers['Cache-Control']='no-cache';return r
+@app.get('/api/capabilities')
+def capabilities():
+    return jsonify(real_llm=_llm_provider.configured,image_generation=_image_provider.configured,persistent_memory=True,coding_assistance=_llm_provider.configured or bool(os.getenv('UF_MODEL_ID')),streaming=_llm_provider.configured,web_search=True,vision=_llm_provider.configured,voice='browser',file_understanding=True,training_pipeline=True)
+@app.get('/api/history')
+def history():
+    sid,_=_get_engine();return _cookie(jsonify(messages=load_messages(sid),memories=load_memories(sid)),sid)
+@app.post('/api/chat')
+def chat():
+    if not _origin_ok():return jsonify(error='Cross-origin request blocked.'),403
+    if _rate_limited(_client_key()):return jsonify(error='Too many requests. Please wait.'),429
+    d=request.get_json(silent=True)
+    if not isinstance(d,dict):return jsonify(error='JSON body is required.'),400
+    msg=str(d.get('message','')).strip(); attachment=str(d.get('attachment_text','')).strip()
+    if not msg:return jsonify(error='Message is required.'),400
+    if len(msg)>8000:return jsonify(error='Message is too long.'),413
+    sid,e=_get_engine(); memories=relevant_memories(msg,load_memories(sid)); full=msg
+    if attachment:full += '\n\n[Attached file context]\n'+attachment[:30000]
+    result=e.respond(full,memories=memories);save_message(sid,'user',msg);save_message(sid,'assistant',result['reply'])
+    return _cookie(jsonify({**result,'used_memories':memories}),sid)
+@app.get('/api/chat/stream')
+def chat_stream():
+    # GET is used with URL-encoded message so browser EventSource can stream without a polyfill.
+    if not _origin_ok():return jsonify(error='Cross-origin request blocked.'),403
+    if _rate_limited(_client_key()):return jsonify(error='Too many requests. Please wait.'),429
+    msg=request.args.get('message','').strip();
+    if not msg or len(msg)>8000:return jsonify(error='Message is required and must be <=8000 characters.'),400
+    sid,e=_get_engine(); memories=relevant_memories(msg,load_memories(sid)); history=e.history[-16:]
+    signals=e.last_signals if hasattr(e,'last_signals') else {}
+    system=SYSTEM_PROMPT+'\nUncertain emotion signals: '+str(signals)
+    if memories:system+='\nRelevant user-approved memories: '+'; '.join(memories)
+    messages=[{'role':x.get('role','user'),'content':x.get('content','')} for x in history]+[{'role':'user','content':msg}]
+    def gen():
+        text=''
+        try:
+            for chunk in _llm_provider.stream(system,messages):
+                text+=chunk;yield 'data: '+json.dumps({'delta':chunk},ensure_ascii=False)+'\n\n'
+            save_message(sid,'user',msg);save_message(sid,'assistant',text)
+            if text:e.history.extend([{'role':'user','content':msg},{'role':'assistant','content':text}])
+            yield 'data: '+json.dumps({'done':True})+'\n\n'
+        except Exception as ex:yield 'data: '+json.dumps({'error':'Streaming failed; use normal chat.'})+'\n\n'
+    resp=Response(gen(),mimetype='text/event-stream',headers={'Cache-Control':'no-cache','X-Accel-Buffering':'no'}); _cookie(resp,sid); return resp
+@app.post('/api/memory')
+def memory():
+    if not _origin_ok():return jsonify(error='Cross-origin request blocked.'),403
+    sid,_=_get_engine();d=request.get_json(silent=True) or {};text=str(d.get('memory','')).strip()
+    if not text or len(text)>1000:return jsonify(error='Memory must be 1-1000 characters.'),400
+    save_memory(sid,text);return jsonify(ok=True,memories=load_memories(sid))
+@app.delete('/api/memory/<int:memory_id>')
+def memory_delete(memory_id):
+    sid,_=_get_engine();return jsonify(ok=delete_memory(sid,memory_id),memories=load_memories(sid))
+@app.delete('/api/history')
+def history_delete():
+    sid,e=_get_engine();clear_history(sid);e.history=[];return jsonify(ok=True)
+@app.post('/api/image')
+def image():
+    if not _image_provider.configured:return jsonify(error='Image generation is not configured on this server.'),503
+    d=request.get_json(silent=True) or {};p=str(d.get('prompt','')).strip();size=str(d.get('size','1024x1024'))
+    if not p or len(p)>2000:return jsonify(error='Prompt must be 1-2000 characters.'),400
+    try:return jsonify(image=_image_provider.generate(p,size))
+    except Exception:return jsonify(error='Image provider request failed.'),502
+@app.post('/api/vision')
+def vision():
+    if not _llm_provider.configured:return jsonify(error='Real LLM is not configured.'),503
+    d=request.get_json(silent=True) or {}; prompt=str(d.get('prompt','Describe this image.')).strip(); image=str(d.get('image','')).strip()
+    if not image.startswith('data:image/') or len(image)>6*1024*1024:return jsonify(error='Valid image data is required.'),400
+    try:
+        content=[{'type':'text','text':prompt},{'type':'image_url','image_url':{'url':image}}]
+        reply=_llm_provider.chat(SYSTEM_PROMPT+'\nYou can analyze the supplied image. State uncertainty when visual evidence is ambiguous.',[{'role':'user','content':content}],temperature=.3,max_tokens=1600)
+        return jsonify(reply=reply)
+    except Exception:return jsonify(error='Vision request failed. Your configured model may not support image input.'),502
+
+@app.post('/api/code')
+def code():
+    if not _llm_provider.configured:return jsonify(error='Real LLM is not configured.'),503
+    d=request.get_json(silent=True) or {};task=str(d.get('task','')).strip()
+    if not task or len(task)>8000:return jsonify(error='Coding request must be 1-8000 characters.'),400
+    try:return jsonify(reply=_llm_provider.chat(SYSTEM_PROMPT+'\nAct as a careful coding assistant. Never claim execution/testing you did not perform.',[{'role':'user','content':task}],temperature=.2,max_tokens=2500))
+    except Exception:return jsonify(error='LLM coding request failed.'),502
+@app.post('/api/search')
+def search_api():
+    d=request.get_json(silent=True) or {};q=str(d.get('query','')).strip()
+    if not q or len(q)>300:return jsonify(error='Search query must be 1-300 characters.'),400
+    try:return jsonify(results=web_search(q))
+    except Exception:return jsonify(error='Web search is temporarily unavailable.'),502
+@app.post('/api/upload')
+def upload():
+    f=request.files.get('file')
+    if not f:return jsonify(error='No file supplied.'),400
+    name=secure_filename(f.filename or 'file');ext=os.path.splitext(name)[1].lower()
+    if ext not in ALLOWED:return jsonify(error='Unsupported file type.'),400
+    raw=f.read(5*1024*1024+1)
+    if len(raw)>5*1024*1024:return jsonify(error='File too large (5 MB max).'),413
+    try:
+        if ext in {'.png','.jpg','.jpeg','.webp'}:
+            import base64,mimetypes
+            return jsonify(name=name,type='image',data='data:'+mimetypes.guess_type(name)[0]+';base64,'+base64.b64encode(raw).decode())
+        with tempfile.NamedTemporaryFile(suffix=ext,delete=False) as tmp:tmp.write(raw);path=tmp.name
+        text=extract_text(path);os.unlink(path);return jsonify(name=name,type='text',text=text[:50000])
+    except Exception as ex:return jsonify(error=str(ex)),400
+@app.get('/api/usage')
+def usage():
+    sid,_=_get_engine();msgs=load_messages(sid,100000);return jsonify(messages=len(msgs),plan='free',note='Payment/credits require a configured payment provider and account setup.')
+if __name__=='__main__':app.run(host=os.getenv('HOST','127.0.0.1'),port=int(os.getenv('PORT','5000')),debug=False)
+
+
+===== FILE: docs/ROADMAP.md =====
+# Aikiyara — Advanced Roadmap
+
+## Implemented in this build
+- PWA install/offline shell
+- Secure same-origin chat endpoint
+- Request size + rate limiting
+- Session-isolated conversation history
+- Context-aware emotion scoring with intensity and negation handling
+- Hindi/Hinglish lexicon coverage
+- Optional local Transformers inference via `UF_MODEL_ID`
+- Graceful fallback when no model is configured
+- Structured emotion metadata for future training/evaluation
+
+## Next engineering stages
+1. Persistent opt-in memory (SQLite first, vector retrieval later)
+2. Intent + emotion + conversation-state planner
+3. Evaluation dataset for Hindi/Hinglish emotional understanding
+4. Retrieval-augmented memory with explicit user controls
+5. Model routing (small local model vs remote model)
+6. Streaming generation and cancellation
+7. Authentication and per-user encrypted storage for production deployment
+8. Safety classifier and escalation-aware response policy
+9. Automated regression benchmark and load tests
+10. Fine-tuning only after a quality dataset and evaluation protocol exist
+
+A foundation model is not included in the repository. `UF_MODEL_ID` connects an existing compatible model; it does not train a new one.
+
+
+===== FILE: manifest.webmanifest =====
+{
+  "name": "Aikiyara",
+  "short_name": "Aikiyara",
+  "description": "Aikiyara — an emotion-aware conversational AI assistant.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#181426",
+  "theme_color": "#181426",
+  "icons": [
+    {"src":"/static/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"/static/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+  ]
+}
+
